@@ -33,7 +33,7 @@ export const NationalityDisplay: React.FC<NationalityDisplayProps> = ({
   }, [name]);
 
   return (
-    <div>
+    <div className="nationality-display">
       {nationalities.map((nat, index) => (
         <span key={nat.country_id}>
           {countries[index]?.name.common ?? nat.country_id} (

@@ -15,12 +15,14 @@ export const AddUser: React.FC<AddUserProps> = ({ onAddUser }) => {
   };
 
   return (
-    <input
-      type="text"
-      value={name}
-      onChange={(e) => setName(e.target.value)}
-      onKeyPress={handleKeyPress}
-      placeholder="Enter a name"
-    />
+    <div className="input-container">
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        onKeyPress={handleKeyPress}
+        placeholder="Enter a name"
+      />
+    </div>
   );
 };

@@ -1,36 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { fetchUsers } from "../api";
+import React from "react";
 import { User } from "../types";
 import { NationalityDisplay } from "./NationalityDisplay";
 
-export const UserList: React.FC = () => {
-  const [users, setUsers] = useState<User[]>([]);
-  const [error, setError] = useState<string>("");
+type UserListProps = {
+  users: User[];
+};
 
-  useEffect(() => {
-    const getUsers = async () => {
-      const usersData = await fetchUsers();
-      if (usersData === null) {
-        setError("Failed to load users.");
-      } else {
-        setUsers(usersData.map((userName) => ({ name: userName })));
-      }
-    };
-
-    getUsers();
-  }, []);
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
+export const UserList: React.FC<UserListProps> = ({ users }) => {
   return (
-    <div>
-      {users.map((user) => (
-        <div key={user.name}>
-          {user.name} - <NationalityDisplay name={user.name} />
-        </div>
-      ))}
+    <div className="container">
+      <ul className="user-list">
+        {users.map((user) => (
+          <li key={user.name} className="user-list-item">
+            {user.name} - <NationalityDisplay name={user.name} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
