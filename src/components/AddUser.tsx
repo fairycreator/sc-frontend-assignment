@@ -1,25 +1,25 @@
 import React, { useState } from "react";
 
 type AddUserProps = {
-  onAddUser: (userName: string) => void;
+  onAddUser: (name: string) => void;
 };
 
 export const AddUser: React.FC<AddUserProps> = ({ onAddUser }) => {
-  const [userName, setUserName] = useState("");
+  const [name, setName] = useState("");
 
-  const handleSubmit = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && userName.match(/^[A-Za-z]+$/)) {
-      onAddUser(userName);
-      setUserName("");
+  const handleKeyPress = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter" && name.match(/^[A-Za-z]+$/)) {
+      onAddUser(name);
+      setName("");
     }
   };
 
   return (
     <input
       type="text"
-      value={userName}
-      onChange={(e) => setUserName(e.target.value)}
-      onKeyPress={handleSubmit}
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+      onKeyPress={handleKeyPress}
       placeholder="Enter a name"
     />
   );
