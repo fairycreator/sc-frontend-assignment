@@ -7,10 +7,16 @@ import "./styles.css";
 
 function App() {
   const [users, setUsers] = useState<User[]>([]);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
-  const handleAddUser = (userName: string) => {
-    const newUser: User = { name: userName };
-    setUsers([...users, newUser]);
+  const handleAddUser = (userName: string, isValid: boolean) => {
+    if (isValid) {
+      const newUser: User = { name: userName };
+      setUsers([...users, newUser]);
+      setErrorMessage("");
+    } else {
+      setErrorMessage("Not a real name");
+    }
   };
 
   return (
@@ -18,6 +24,7 @@ function App() {
       <Background />
       <h1>User Nationality Predictor</h1>
       <h3>Enter a name to see probable nationalities and country flags</h3>
+      {errorMessage && <div>{errorMessage}</div>}
       <AddUser onAddUser={handleAddUser} />
       <UserList users={users} />
     </div>
