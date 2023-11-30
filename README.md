@@ -86,3 +86,14 @@ Run development server
    review.
 2. Add us as external contributors to your own private repo, so we can review
    your Pull Request.
+
+## To-Do List of Assignement
+
+[+] Fetch and Display Users: Implemented functionality to fetch users from the JSON Placeholder API and display them in the user list.
+[+] Sort User List Alphabetically: Added logic to sort the user list alphabetically for better readability and consistency.
+
+[+] Implement Name Input Validation: Updated the name input field to ensure it only accepts alphabetical characters, excluding spaces and special characters.
+[+] Enhance Error Handling: Improved error handling mechanisms to provide feedback to the user, especially for invalid name entries and API errors.
+
+[+-] Persist User Data: Utilized local storage to save and load user data, ensuring persistence across page reloads.
+[+] Responsive Design: Made adjustments to CSS to ensure the user list is responsive and displays well on various screen sizes.
