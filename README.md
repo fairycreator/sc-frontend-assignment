@@ -40,7 +40,7 @@ Title: User Nationality Prediction
 
 Description:
 
-A UI for admin to view and add new users 
+A UI for admin to view and add new users
 
 APIs
 - User: https://jsonplaceholder.typicode.com/users
@@ -86,4 +86,3 @@ Run development server
    review.
 2. Add us as external contributors to your own private repo, so we can review
    your Pull Request.
-
