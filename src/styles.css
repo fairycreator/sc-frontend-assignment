@@ -69,22 +69,6 @@ input:focus {
   border-color: #0071e3;
 }
 
-button {
-  background-color: #0071e3;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
 .user-list {
   list-style: none;
   padding: 0;
@@ -92,7 +76,7 @@ button:hover {
 
 .user-list-item {
   background-color: #fff;
-  padding: 15px;
+  padding: 5px;
   margin-bottom: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -109,4 +93,42 @@ button:hover {
   width: 40px;
   height: auto;
   margin-left: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 95%; 
+  }
+
+  .input-container,
+  input {
+    width: 75%; 
+  }
+
+  h1 {
+    font-size: 1.5em; /
+  }
+
+  h3 {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .input-container,
+  input {
+    width: 100%; 
+  }
+
+  .nationality-display img {
+    width: 30px; 
+  }
+
+  h1 {
+    font-size: 1.2em; 
+  }
+
+  .user-list-item {
+    padding: 10px; 
+  }
 }
