@@ -6,6 +6,7 @@ type AddUserProps = {
 
 export const AddUser: React.FC<AddUserProps> = ({ onAddUser }) => {
   const [name, setName] = useState("");
+  const [error, setError] = useState("");
 
   const isValidName = (name: string) => {
     const basicCheck = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/.test(name);
@@ -16,8 +17,13 @@ export const AddUser: React.FC<AddUserProps> = ({ onAddUser }) => {
   const handleKeyPress = (event: React.KeyboardEvent) => {
     if (event.key === "Enter") {
       const isValid = isValidName(name);
-      onAddUser(name, isValid);
-      setName("");
+      if (isValid) {
+        onAddUser(name, isValid);
+        setName("");
+        setError("");
+      } else {
+        setError("Invalid name. Please enter a real name.");
+      }
     }
   };
 
@@ -30,6 +36,7 @@ export const AddUser: React.FC<AddUserProps> = ({ onAddUser }) => {
         onKeyPress={handleKeyPress}
         placeholder="Enter a name"
       />
+      {error && <div className="error-message">{error}</div>}{" "}
     </div>
   );
 };

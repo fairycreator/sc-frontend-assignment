@@ -19,7 +19,6 @@ export const NationalityDisplay: React.FC<NationalityDisplayProps> = ({
       const data = await fetchNationality(name);
       if (data) {
         setNationalities(data.country);
-        // Fetch additional country data
         for (const country of data.country) {
           const countryData = await fetchCountryData(country.country_id);
           if (countryData) {
@@ -33,18 +32,24 @@ export const NationalityDisplay: React.FC<NationalityDisplayProps> = ({
   }, [name]);
 
   return (
-    <div className="nationality-display">
+    <div className="container">
       {nationalities.map((nat, index) => (
-        <span key={nat.country_id}>
-          {countries[index]?.name.common ?? nat.country_id} (
-          {nat.probability.toFixed(2)}%)
+        <div
+          key={nat.country_id}
+          className="user-list-item nationality-display"
+        >
+          <span>
+            {countries[index]?.name.common ?? nat.country_id} (
+            {nat.probability.toFixed(2)}%)
+          </span>
           {countries[index] && (
             <img
               src={countries[index].flags.png}
               alt={`Flag of ${countries[index].name.common}`}
+              className="flag-icon"
             />
           )}
-        </span>
+        </div>
       ))}
     </div>
   );
